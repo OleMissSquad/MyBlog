@@ -1,6 +1,6 @@
 User Requirement 
 
-1. There are three types of users: unauthorized user(anonymous user), authorized user and admin(author)  
+1. There are three types of users: unauthorized user(anonymous user), authorized user and admin.
 2. As a unauthorized user, I can visit the homepage and see all the summary of recent posts.
 3. As a unauthorized user, when I click on title of a post in the homepage, I can go to that post detail page and see the whole post.
 4. As a unauthorized user, I can easily navigate through the whole website (The collection of all web pages)
@@ -14,7 +14,10 @@ User Requirement
 10. As an authorized user, when I visit a "detail" page of a post, I can post comment on the post.
 11. As an authorized user, when I visit the "My account" page, I can edit my profile info, I can edit my mail, RSS subscription info and I can also see my recent activity on the website.
 12. As an authorized user, when I visit the "My bookmark post" page, I can see all the post that I bookmarked.
-13. As an admin, I can do all what an unauthorized user do.
-14. As an admin, I can get to an author "dashboard". Inside the dashboard, I can write new posts. I can also edit old posts and category(tag) of old posts. I can block user comments on my posts.
-15. As an admin, I can comment on posts.
+13. As an authorized user, I can get to an author "dashboard". Inside the dashboard, I can write new posts. I can also edit old posts and category(tag) of old posts. I can block user comments on my posts.
+	- I can edit font and format when writing posts. I can insert pictures and files 
+14. As an authorized user, I can upload a picture or file to use in a post.
+
+15. As an admin, I can do all what an authorized user do.
 16. As an admin, I can block user from commenting on any pages.
+
