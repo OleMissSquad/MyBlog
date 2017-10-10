@@ -36,7 +36,7 @@ class Post(models.Model):
     views = models.IntegerField(default=0);
     comment_enabled = models.BooleanField(default=True);
     is_enabled = models.BooleanField()
-    category = models.ManyToManyField(Category, through=PostCategory)
+    category = models.ManyToManyField(Category, through='PostCategory')
 
     # Storing file maybe???
     #file = models.FileField();
@@ -49,23 +49,25 @@ class Post(models.Model):
 
 
 class PostCategory(models.Model):
-    post_id = models.ForeignKey(Post, on_delete=models.CASCADE, primary_key=True)
-    category_id = models.ForeignKey(Category, on_delete=models.CASCADE, primary_key=True)
+    id = models.AutoField(primary_key=True, default=0)
+    post_id = models.ForeignKey(Post, on_delete=models.CASCADE)
+    category_id = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
         return Post.objects.get(pk=self.post_id).__str__() + ", " + Category.objects.get(pk=self.category_id).__str__()
 
 
 class BookmarkedPost(models.Model):
-    post_id = models.ForeignKey(Post, on_delete=models.CASCADE, primary_key=True)
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE, primary_key=True)
+    id = models.AutoField(primary_key=True, default=0)
+    post_id = models.ForeignKey(Post, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return Post.objects.get(pk=self.post_id).__str__() + ", " + User.objects.get(pk=self.user_id).__str__()
 
 
 class Comment(models.Model):
-    id = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True, default=0)
 
     # Needs to work on how to reply to a comment on a post
     post_id = models.ForeignKey(Post, on_delete=models.CASCADE)
