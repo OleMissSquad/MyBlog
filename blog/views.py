@@ -1,11 +1,13 @@
 from django.shortcuts import render, get_object_or_404
-
+from django.http import HttpResponse
 from .models import Post
 
 
 # Create your views here.
 def index(request):
-    return None
+    latest_post_list = Post.objects.order_by("-date_published")[:5]
+    context = {'latest_post_list': latest_post_list}
+    return render(request, 'blog/index.html', context)
 
 
 def post(request):
@@ -18,14 +20,19 @@ def detail(request, post_id):
     return render(request, 'blog/detail.html', context)
 
 
-def year_archive(request):
-    return None
+def archive(request):
+    return HttpResponse("This is the archive page")
 
 
-def month_archive(request):
-    return None
+def dashboard(request):
+    return HttpResponse("This is the dashboard page")
 
 
-def day_archive(request):
-    return None
+def signup(request):
+    return HttpResponse("This is the singup page")
+
+
+def signin(request):
+    return HttpResponse("This is the signin page")
+
 
